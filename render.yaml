@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: soulpath
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    repo: https://github.com/ahrayz/soulpath
+    branch: main
+    plan: free
+    healthCheckPath: /api/quota
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PORT
+        value: 10000
