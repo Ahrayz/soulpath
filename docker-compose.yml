@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  soulpath:
+    build: .
+    ports:
+      - "8080:3001"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - PORT=3001
+    volumes:
+      - soulpath-data:/app/server
+    restart: unless-stopped
+    container_name: soulpath
+
+volumes:
+  soulpath-data:
